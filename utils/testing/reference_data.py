@@ -98,7 +98,7 @@ class BaseTest(tf.test.TestCase):
     Returns:
       A pseudo-random 32 bit integer derived from name.
     """
-    seed = hashlib.md5(name.encode("utf-8")).hexdigest()
+    seed = hashlib.sha256(name.encode("utf-8")).hexdigest()
     return int(seed, 16) % (2**32 - 1)
 
   @staticmethod
